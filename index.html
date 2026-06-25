@@ -1,0 +1,364 @@
+Citibanamex · HTML
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Datos de transferencia — Soluciones Integrales</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    :root {
+      --navy:  #1C263A;
+      --cyan:  #0096D7;
+      --citi:  #1A3A8C;
+      --red:   #CC2200;
+      --white: #ffffff;
+    }
+ 
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--navy);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 16px;
+    }
+ 
+    .wrapper {
+      width: 100%;
+      max-width: 440px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 28px 72px rgba(0,0,0,0.5);
+    }
+ 
+    /* ── HEADER ── */
+    .header {
+      background: var(--white);
+      padding: 0;
+      border-bottom: 1px solid #eef0f4;
+    }
+    .header-logo {
+      width: 100%;
+      overflow: hidden;
+    }
+    .header-logo img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      /* REEMPLAZA "logo.png" CON LA RUTA REAL DE TU LOGO */
+    }
+ 
+    /* ── SERVICIOS LINK ── */
+    .servicios {
+      background: var(--cyan);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .servicios a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: opacity .15s;
+    }
+    .servicios a:hover { opacity: 0.8; }
+    .servicios i { font-size: 15px; }
+ 
+    /* ── CARD DATOS ── */
+    .card {
+      background: var(--white);
+    }
+    .card-header {
+      background: linear-gradient(135deg, #1A3A8C 0%, #0D2266 100%);
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .card-header-left { display: flex; align-items: center; gap: 12px; }
+    .card-header-icon {
+      background: rgba(255,255,255,0.15);
+      border-radius: 10px;
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; color: var(--white);
+    }
+    .card-header-sub   { color: rgba(255,255,255,0.6); font-size: 11px; margin-bottom: 2px; }
+    .card-header-title { color: var(--white); font-size: 15px; font-weight: 600; }
+    .mastercard {
+      display: flex;
+    }
+    .mc-circle {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+    }
+    .mc-red    { background: #EB001B; }
+    .mc-orange { background: #F79E1B; margin-left: -10px; mix-blend-mode: multiply; }
+ 
+    .card-body { padding: 0 24px; }
+ 
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      border-bottom: 1px solid #f0f2f5;
+    }
+    .row:last-child { border-bottom: none; }
+    .row-label {
+      display: flex; align-items: center; gap: 10px;
+      color: #888; font-size: 13px;
+    }
+    .row-label i { font-size: 15px; }
+    .row-value {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 14px; font-weight: 500; color: #111;
+    }
+    .mono { font-family: 'Courier New', monospace; }
+    .copy-btn {
+      background: none; border: none; cursor: pointer;
+      color: #bbb; padding: 2px; font-size: 15px;
+      transition: color .15s;
+    }
+    .copy-btn:hover  { color: var(--cyan); }
+    .copy-btn.copied { color: #1D9E75; }
+ 
+    .card-tip {
+      background: #f7f9fb;
+      border-top: 1px solid #f0f2f5;
+      padding: 11px 24px;
+      font-size: 11px; color: #bbb;
+      display: flex; align-items: center; gap: 6px;
+    }
+ 
+    /* ── FOOTER ── */
+    .footer {
+      background: #111a27;
+      padding: 20px 24px;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 14px;
+    }
+    .footer-company { font-size: 13px; font-weight: 700; color: var(--white); margin-bottom: 5px; }
+    .footer-detail  {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 12px; color: rgba(255,255,255,0.45);
+      margin-bottom: 3px;
+    }
+    .footer-detail i { font-size: 13px; color: var(--cyan); }
+    .footer-link {
+      display: flex; align-items: center; gap: 5px;
+      color: var(--cyan); text-decoration: none;
+      font-size: 12px; font-weight: 500;
+      transition: opacity .15s;
+    }
+    .footer-link:hover { opacity: 0.75; }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .footer-plantilla { font-size: 11px; color: rgba(255,255,255,0.25); }
+    .footer-plantilla a { color: rgba(255,255,255,0.4); text-decoration: none; }
+    .footer-plantilla a:hover { color: var(--white); }
+ 
+    /* ── PROMO ── */
+    .promo {
+      margin-top: 20px;
+      text-align: center;
+      color: rgba(255,255,255,0.35);
+      font-size: 12px;
+      line-height: 1.9;
+    }
+    .promo a { color: rgba(255,255,255,0.6); text-decoration: none; font-weight: 500; }
+    .promo a:hover { color: var(--white); }
+  </style>
+</head>
+<body>
+ 
+  <div class="wrapper">
+ 
+    <!-- HEADER EMPRESA -->
+    <div class="header">
+      <div class="header-logo">
+        <!-- REEMPLAZA "logo.png" CON LA RUTA REAL DE TU LOGO -->
+        <img src="logo.png" alt="Logo Soluciones Integrales" />
+      </div>
+    </div>
+
+    <!-- NUESTROS SERVICIOS -->
+    <div class="servicios">
+      <a href="https://www.aclsys.net/servicios" target="_blank">
+        <i class="ti ti-briefcase"></i>
+        NUESTROS SERVICIOS
+        <i class="ti ti-arrow-right"></i>
+      </a>
+    </div>
+
+    <!-- DATOS BANCARIOS -->
+    <div class="card">
+
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-header-icon">
+            <i class="ti ti-credit-card"></i>
+          </div>
+          <div>
+            <p class="card-header-sub">Datos para transferencia</p>
+            <p class="card-header-title">Citibanamex · Debito</p>
+          </div>
+        </div>
+        <div class="mastercard">
+          <div class="mc-circle mc-red"></div>
+          <div class="mc-circle mc-orange"></div>
+        </div>
+      </div>
+
+      <div class="card-body">
+
+        <div class="row">
+          <div class="row-label"><i class="ti ti-user"></i> Titular</div>
+          <div class="row-value">
+            <!-- ESCRIBE AQUÍ EL NOMBRE DEL TITULAR -->
+            <span id="titular">Abigail Canche López</span>
+            <button class="copy-btn" onclick="copy('titular')" title="Copiar">
+              <i class="ti ti-copy" id="icon-titular"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="row-label"><i class="ti ti-building-bank"></i> Banco</div>
+          <div class="row-value">Citibanamex</div>
+        </div>
+        <div class="row">
+            <div class="row-label"><i class="ti ti-hash"></i> Cuenta</div>
+            <div class="row-value">
+              <!-- ESCRIBE AQUÍ EL NÚMERO DE CUENTA -->
+              <span class="mono" id="cuenta">6764072</span>
+              <button class="copy-btn" onclick="copy('cuenta')" title="Copiar">
+                <i class="ti ti-copy" id="icon-cuenta"></i>
+              </button>
+            </div>
+          </div>
+        <div class="row">
+          <div class="row-label"><i class="ti ti-hash"></i> CLABE</div>
+          <div class="row-value">
+            <!-- ESCRIBE AQUÍ LA CLABE INTERBANCARIA (18 dígitos) -->
+            <span class="mono" id="clabe">002 692 701 7676 40722</span>
+            <button class="copy-btn" onclick="copy('clabe')" title="Copiar">
+              <i class="ti ti-copy" id="icon-clabe"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="row-label"><i class="ti ti-credit-card"></i> Tarjeta</div>
+          <div class="row-value">
+            <!-- ESCRIBE AQUÍ EL NÚMERO DE TARJETA (o últimos 4 dígitos) -->
+            <span class="mono" id="numero">5204 1657 7222 6696</span>
+            <button class="copy-btn" onclick="copy('numero')" title="Copiar">
+              <i class="ti ti-copy" id="icon-numero"></i>
+            </button>
+          </div>
+        </div>
+        
+
+        <div class="row">
+          <div class="row-label"><i class="ti ti-receipt"></i> Concepto</div>
+          <div class="row-value">
+            <!-- ESCRIBE AQUÍ EL CONCEPTO DE PAGO -->
+            <span id="concepto">Accesorios informaticos</span>
+            <button class="copy-btn" onclick="copy('concepto')" title="Copiar">
+              <i class="ti ti-copy" id="icon-concepto"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="card-tip">
+        <i class="ti ti-shield-check"></i>
+        Toca el icono para copiar cada dato
+      </div>
+
+    </div>
+
+    <!-- FOOTER EMPRESA -->
+    <div class="footer">
+      <div class="footer-top">
+        <div>
+          <div class="footer-company">ACLSYS</div>
+          <div class="footer-detail">
+            <i class="ti ti-map-pin"></i> Cozumel, Quintana Roo
+          </div>
+          <div class="footer-detail">
+            <!-- ESCRIBE AQUÍ EL TELÉFONO DE LA EMPRESA -->
+            <i class="ti ti-phone"></i> 987 103 9604
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;">
+          <a href="https://www.solucionesintegrales.net" target="_blank" class="footer-link">
+            <i class="ti ti-world"></i> www.aclsys.net
+          </a>
+          <a href="https://www.aclsys.net/proyectos" target="_blank" class="footer-link">
+            <i class="ti ti-briefcase"></i> Ver proyectos
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-plantilla">
+          Plantilla por <a href="https://aclsys.net" target="_blank">www.aclsys.net</a>
+        </div>
+        <div class="footer-plantilla">© 2026 ACLSYS</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PROMO -->
+  <div class="promo">
+    ¿Te gustó esta plantilla? , </a> te creamos una, a tu medida $50 MXN<br/>
+    <span style="color:rgba(255,255,255,0.2);"> unico pago <a href="https://aclsys.net" target="_blank">aclsys.net</a></span>
+  </div>
+
+  <script>
+    function copy(id) {
+      const text = document.getElementById(id).textContent.trim();
+      navigator.clipboard.writeText(text).then(() => {
+        const icon = document.getElementById('icon-' + id);
+        const btn  = icon.closest('button');
+        icon.className = 'ti ti-check';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          icon.className = 'ti ti-copy';
+          btn.classList.remove('copied');
+        }, 1800);
+      });
+    }
+  </script>
+
+</body>
+</html>
